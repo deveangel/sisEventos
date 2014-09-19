@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+           "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="UsuarioNS">
+
+   <typeAlias alias="UsuarioBean" type="com.swgoodidea.almacen.pojos.Usuario"/>
+
+   <resultMap id="UsuarioRM" class="UsuarioBean">
+       <result property="clave" column="claUsu"/>
+       <result property="nombres" nullValue = "" column="nomb"/>
+       <result property="apellidos" nullValue = "" column="ape"/>
+       <result property="login" nullValue = "" column="log"/>
+   </resultMap>
+
+   <insert id="addUsuarioIbt" parameterClass="UsuarioBean">
+           INSERT INTO Usuario(clave,nombres,apellidos,login)
+           VALUES(#clave#,#nombres#,#apellidos#,#login#)
+   </insert>
+
+   <update id="updUsuarioIbt" parameterClass="UsuarioBean">
+           UPDATE Usuario SET nombres = #nombres#,apellidos = #apellidos# , clave=#clave#
+           WHERE login = #login#
+   </update>
+
+   <delete id="delUsuarioIbt" parameterClass="map">
+           DELETE FROM Usuario WHERE login = #login#
+   </delete>
+
+   <select id="getUsuarioAllIbt" resultMap="UsuarioRM">
+           SELECT u.clave AS claUsu, u.nombres AS nomb, u.apellidos AS ape,u.login AS log
+           FROM Usuario u
+   </select>
+
+   <select id="getUsuarioIbt" parameterClass="map" resultMap="UsuarioRM">
+           SELECT u.clave AS claUsu, u.nombres AS nomb, u.apellidos AS ape,u.login AS log
+           FROM Usuario u WHERE u.login = #login#
+   </select>
+</sqlMap>

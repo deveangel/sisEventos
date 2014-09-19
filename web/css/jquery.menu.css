@@ -1,0 +1,31 @@
+ul.mj {list-style:none;margin:0;padding:0;}
+ul.mj li {
+	float:left;
+	width:120px;
+	align: center;
+	height:39px;	
+	margin:1px;
+	padding:0;
+	text-align:center;
+	font-size:12px;
+}
+ul.mj a {
+	display:block;
+	height:100%;
+	color:#023569;
+	text-decoration:none;
+	border-right:2px solid #FFF;
+}
+ul.mj a:hover, ul.mj a:focus, ul.mj a:active {
+	background-position:-140px 0;
+}
+ul.mj a {
+	background:url('../images/mj_bg.jpg') repeat -20px 35px;
+}
+ul.mj a.used {
+	background:url('../images/mj_bgused.jpg') repeat -20px 35px;
+	color:#FFFFFF;
+}
+.bgmenu {
+	background-color: #87CEEB;
+}

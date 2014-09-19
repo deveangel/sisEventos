@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+           "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="alumnoNS">
+
+   <typeAlias alias="alumnoBean" type="com.swgoodidea.almacen.pojos.Alumno"/>
+
+   <resultMap id="alumnoRM" class="alumnoBean">
+       <result property="codigo" column="codAlu"/>
+       <result property="nombre" nullValue = "" column="nomb"/>
+       <result property="apellidos" nullValue = "" column="ape"/>
+       <result property="direccion" nullValue = "" column="direc"/>
+   </resultMap>
+
+   <insert id="addAlumnoIbt" parameterClass="alumnoBean">
+           INSERT INTO alumno(codigo,nombres,apellidos,direccion)
+           VALUES(#codigo#,#nombre#,#apellidos#,#direccion#)
+   </insert>
+
+   <update id="updAlumnoIbt" parameterClass="alumnoBean">
+           UPDATE alumno SET nombres = #nombre#,apellidos = #apellidos# , direccion=#direccion#
+           WHERE codigo = #codigo#
+   </update>
+
+   <delete id="delAlumnoIbt" parameterClass="map">
+           DELETE FROM alumno WHERE codigo = #codigo#
+   </delete>
+
+   <select id="getAlumnoAllIbt" resultMap="alumnoRM">
+           SELECT a.codigo AS codAlu, a.nombres AS nomb, a.apellidos AS ape,a.direccioin AS direc
+           FROM alumno a
+   </select>
+
+   <select id="getAlumnoIbt" parameterClass="map" resultMap="alumnoRM">
+           SELECT a.codigo AS cod, a.nombres AS nomb, a.apellidos AS ape,a.direccion AS direc
+           FROM alumno a WHERE a.codigo = #codigo#
+   </select>
+</sqlMap>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+ <definition name="baselayout" template="/WEB-INF/tiles/baselayout.jsp">
+     <put-attribute name="title" value="Sistema de prueba web"/>
+     <put-attribute name="menu" value="/WEB-INF/tiles/menu.jsp"/>
+     <put-attribute name="contenido" value="/WEB-INF/tiles/contenido.jsp"/>
+ </definition>
+ <definition name="login"  extends="baselayout">
+     <put-attribute name="contenido" value="/templatesjsp/login.jsp"/>
+     <put-attribute name="script" value="js/iniciacontexto.js"/>
+ </definition>
+ <definition name="inicio" extends="baselayout">
+     <put-attribute name="contenido" value="/templatesjsp/inicio.jsp"/>
+     <put-attribute name="menu" value="/templatesjsp/menu.jsp"/>
+     <put-attribute name="opcion" value="/templatesjsp/opcion.jsp"/>
+     <put-attribute name="datosusuario" value="/templatesjsp/datosusuario.jsp"/>
+ </definition>
+ <definition name="tablaalumno" extends="baselayout">
+     <put-attribute name="contenido" value="/templatesjsp/consultas.jsp"/>
+     <put-attribute name="menu" value="/templatesjsp/menu.jsp"/>
+     <put-attribute name="opcion" value="/templatesjsp/opcion.jsp"/>
+     <put-attribute name="datosusuario" value="/templatesjsp/datosusuario.jsp"/>
+ </definition>
+ <definition name="acercade" extends="baselayout">
+     <put-attribute name="contenido" value="/templatesjsp/acercade.jsp"/>
+     <put-attribute name="menu" value="/templatesjsp/menu.jsp"/>
+     <put-attribute name="opcion" value="/templatesjsp/opcion.jsp"/>
+     <put-attribute name="datosusuario" value="/templatesjsp/datosusuario.jsp"/>
+ </definition>
+ <definition name="bienvenido" extends="baselayout">
+     <put-attribute name="menu" value="/templatesjsp/bienvenido.jsp"/>
+ </definition>
+ <definition name="cambiocontraseña" extends="baselayout">
+     <put-attribute name="menu" value="/templatesjsp/bienvenido.jsp"/>
+     <put-attribute name="contenido" value="/templatesjsp/Cambio_contraseña.jsp"/>
+     <put-attribute name="script" value="js/funcion.js"/>
+ </definition>
+</tiles-definitions>
